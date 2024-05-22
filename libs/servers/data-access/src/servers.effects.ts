@@ -1,14 +1,16 @@
 import { inject, Injectable } from '@angular/core';
 import { BrowserStorageService } from '@metin2tools/utils';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { forkJoin, from, map, mergeMap, switchMap, tap } from 'rxjs';
-import { Server, ServerItem } from './models';
+import { forkJoin, map, mergeMap, switchMap, tap } from 'rxjs';
+import { ServerItem } from './models';
 import { ServersActions } from './servers.actions';
+import { ServersService } from './servers.service';
 
 @Injectable()
 export class ServersEffects {
   private actions$ = inject(Actions);
   private browserStorageService = inject(BrowserStorageService);
+  private serversService = inject(ServersService);
 
   init$ = createEffect(() => {
     return this.actions$.pipe(
@@ -22,10 +24,10 @@ export class ServersEffects {
       ofType(ServersActions.loadData),
       switchMap(() =>
         forkJoin([
-          from(import('./servers.json')).pipe(map((m) => m.default)),
-          from(import('./serverItems.json')).pipe(map((m) => m.default)),
+          this.serversService.getServers(),
+          this.serversService.getServerItems(),
         ]).pipe(
-          map(([servers, serverItems]: [Server[], ServerItem[]]) =>
+          map(([servers, serverItems]) =>
             ServersActions.loadDataSuccess({ servers, serverItems }),
           ),
         ),

@@ -1,14 +1,16 @@
 import { inject, Injectable } from '@angular/core';
 import { BrowserStorageService } from '@metin2tools/utils';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, from, map, of, switchMap, tap } from 'rxjs';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { DungeonsActions } from './dungeons.actions';
+import { DungeonsService } from './dungeons.service';
 import { Dungeon } from './models';
 
 @Injectable()
 export class DungeonsEffects {
   private actions$ = inject(Actions);
   private browserStorageService = inject(BrowserStorageService);
+  private dungeonsService = inject(DungeonsService);
 
   init$ = createEffect(() => {
     return this.actions$.pipe(
@@ -21,7 +23,7 @@ export class DungeonsEffects {
     return this.actions$.pipe(
       ofType(DungeonsActions.loadData),
       switchMap(() =>
-        from(import('./data.json').then((m) => m.default)).pipe(
+        this.dungeonsService.getDungeons().pipe(
           map((dungeons) => this.mapDungeons(dungeons)),
           map((dungeons: Dungeon[]) =>
             DungeonsActions.loadDataSuccess({ dungeons }),
