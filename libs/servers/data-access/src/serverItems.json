@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "name": "Zwój egzorcyzmu",
+    "price": 20000000,
+    "serverSlug": "ervelia"
+  },
+  {
+    "id": "2",
+    "name": "Rada pustelnika",
+    "price": 20000000,
+    "serverSlug": "ervelia"
+  },
+  {
+    "id": "3",
+    "name": "Cor draconis (surowy)",
+    "price": 700000,
+    "serverSlug": "ervelia"
+  },
+  {
+    "id": "4",
+    "name": "Cor draconis (szlif)",
+    "price": 14000000,
+    "serverSlug": "ervelia"
+  },
+  {
+    "id": "5",
+    "name": "Szkat. Wu-Konga",
+    "price": 195000000,
+    "serverSlug": "ervelia"
+  }
+]

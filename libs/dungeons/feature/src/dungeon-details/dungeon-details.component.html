@@ -1,0 +1,10 @@
+@if (dungeon()) {
+  <h1>{{ dungeon().name }}</h1>
+
+  <lib-dungeon-profit
+    [dungeon]="dungeon()"
+    [dungeonTime]="dungeonTime()"
+    (updateDungeonTime)="updateDungeonTime($event)"
+  />
+  <lib-dungeon-items [dungeon]="dungeon()" />
+}

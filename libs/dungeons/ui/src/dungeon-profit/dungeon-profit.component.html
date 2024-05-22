@@ -1,0 +1,12 @@
+@if (dungeon().totalProfit) {
+  <p>Zarobek na 100 dungeonów: {{ dungeon().totalProfit! | kkCurrency }}</p>
+  <p>
+    Czas na 1 dunga:
+    <input [ngModel]="dungeonTime()" (ngModelChange)="onUpdate($event)" />
+    minut
+  </p>
+  <p>
+    Zarobek na godzinę:
+    {{ profitPerHour() | kkCurrency }}
+  </p>
+}

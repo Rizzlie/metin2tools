@@ -1,0 +1,10 @@
+<h1>Dungeons</h1>
+<ol>
+  @for (dungeon of dungeons$ | async; track dungeon.slug) {
+    <li>
+      <a [routerLink]="dungeon.slug">
+        {{ dungeon.name }}
+      </a>
+    </li>
+  }
+</ol>

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Wzgórza Wu-Konga",
+    "serverSlug": "ervelia",
+    "slug": "wu-kong",
+    "time": 3.5,
+    "drop": {
+      "items": [
+        {
+          "itemId": "1",
+          "amount": 34
+        },
+        {
+          "itemId": "2",
+          "amount": 42
+        },
+        {
+          "itemId": "3",
+          "amount": 367
+        },
+        {
+          "itemId": "4",
+          "amount": 236
+        },
+        {
+          "itemId": "5",
+          "amount": 146
+        }
+      ]
+    }
+  }
+]

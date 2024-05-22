@@ -1,0 +1,28 @@
+@if (server()) {
+  <h1>{{ server().name }}</h1>
+
+  <h3>Items</h3>
+
+  <input
+    type="text"
+    [ngModel]="itemFilters()"
+    (ngModelChange)="itemFilters.set($event)"
+    placeholder="Szukaj..."
+  />
+
+  <div>
+    @for (item of serverItems(); track item.id) {
+      <div>
+        <div>
+          {{ item.name }}
+        </div>
+        <div>
+          <input
+            [ngModel]="item.price"
+            (ngModelChange)="updateItemPrice(server().slug!, item.id, $event)"
+          />
+        </div>
+      </div>
+    }
+  </div>
+}

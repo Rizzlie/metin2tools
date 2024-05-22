@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { DungeonsActions } from '@metin2tools/dungeons/data-access';
+import { ServersActions } from '@metin2tools/servers/data-access';
+import { Store } from '@ngrx/store';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [RouterModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'metin2tools';
+export class AppComponent implements OnInit {
+  private store = inject(Store);
+
+  ngOnInit() {
+    this.store.dispatch(ServersActions.init());
+    this.store.dispatch(DungeonsActions.init());
+  }
 }

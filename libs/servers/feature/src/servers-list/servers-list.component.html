@@ -1,0 +1,10 @@
+@if (servers$ | async; as servers) {
+  <div>
+    @for (server of servers; track server.slug) {
+      <div>
+        <h3>{{ server.name }}</h3>
+        <a [routerLink]="'/servers/' + server.slug + '/dungeons'">Dungeons</a>
+      </div>
+    }
+  </div>
+}

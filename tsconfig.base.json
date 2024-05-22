@@ -1,0 +1,33 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@metin2tools/dungeons/data-access": [
+        "libs/dungeons/data-access/src/index.ts"
+      ],
+      "@metin2tools/dungeons/feature": ["libs/dungeons/feature/src/index.ts"],
+      "@metin2tools/dungeons/ui": ["libs/dungeons/ui/src/index.ts"],
+      "@metin2tools/servers/data-access": [
+        "libs/servers/data-access/src/index.ts"
+      ],
+      "@metin2tools/servers/feature": ["libs/servers/feature/src/index.ts"],
+      "@metin2tools/utils": ["libs/utils/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

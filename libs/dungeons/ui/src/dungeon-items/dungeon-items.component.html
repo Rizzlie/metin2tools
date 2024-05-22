@@ -1,0 +1,13 @@
+@if (dungeon().drop.items) {
+  <strong>Items</strong>
+  <ol>
+    @for (item of dungeon().drop.items; track item.itemId) {
+      <li>
+        {{ item.amount }} x {{ item.name }}
+        @if (item.amount && item.price) {
+          - {{ item.amount * item.price | kkCurrency }}
+        }
+      </li>
+    }
+  </ol>
+}
